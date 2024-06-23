@@ -3,8 +3,9 @@
     <h1 class="text-3xl font-medium"><a href="#hero">🚀Acme Rockets</a></h1>
     <div>
       <button
+        (mousedown)="changeNav()"
         id="mobile-open-button"
-        class="text-3xl sm:hidden focus:outile-none"
+        class="text-3xl md:hidden focus:outile-none"
       >
         &#9776;
       </button>
@@ -15,9 +16,38 @@
       </nav>
     </div>
   </section>
+  <div>
+    <section
+      id="mobile-menu"
+      [class.hidden]="!navToggle"
+      [class.flex]="navToggle"
+      class="absolute top-0 bg-teal-700 text-white w-full text-5xl flex flex-col justify-center origin-top animate-open-menu"
+    >
+      <button (mousedown)="changeNav()" class="text-8xl self-end px-6">
+        &times;
+      </button>
+      <nav
+        class="flex flex-col min-h-screen items-center py-8"
+        aria-label="mobile"
+      >
+        <a href="#hero" class="w-full text-center py-6 hover:opacity-90"
+          >Home</a
+        >
+        <a href="#rockets" class="w-full text-center py-6 hover:opacity-90"
+          >Our Rockets</a
+        >
+        <a href="#testimonials" class="w-full text-center py-6 hover:opacity-90"
+          >Testimonials</a
+        >
+        <a href="#contact" class="w-full text-center py-6 hover:opacity-90"
+          >Contact Us</a
+        >
+      </nav>
+    </section>
+  </div>
 </header>
 
-<main class="max-w-4xl mx-auto">
+<main class="max-w-4xl mx-auto mt-8">
   <section
     id="hero"
     class="flex flex-col-reverse justify-center sm:flex-row px-6 items-center gap-8 mb-12 scroll-mt-40"
@@ -44,7 +74,7 @@
         Think Acme Rockets.
       </p>
     </article>
-    <img class="w-1/2 mt-4" src="./../assests/rocketdab.png" alt="rocketdab" />
+    <img class="w-1/2" src="./../assests/rocketdab.png" alt="rocketdab" />
   </section>
   <hr class="mx-auto bg-black dark:bg-white w-1/2" />
   <section id="rockets" class="scroll-mt-20 p-6 my-12">
